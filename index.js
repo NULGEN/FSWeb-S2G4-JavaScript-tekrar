@@ -41,6 +41,7 @@ function KareninAlani(kenaruzunlugu) {
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+console.log(KareninAlani(10));
 
 /* GÖREV 1:  
 - CemberinCevresi fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
@@ -50,11 +51,13 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
+function CemberinCevresi(yaricap) {
   /* kodlar buraya */
+  return (2*pi*yaricap);
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+console.log(CemberinCevresi(5));
 
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
@@ -64,12 +67,13 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
+function CemberinAlani(yaricap,pi) {
   /* kodlar buraya */
+  return Math.pow(yaricap,2)*pi;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+  console.log(CemberinAlani(15,pi));
 /* 	GÖREV 3:
 	- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
 		3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki en küçük sayı ile en büyük sayıyı bu değişkenlere atayın. (for döngüsü kullanın)
@@ -82,12 +86,16 @@ function CemberinAlani(/* kodlar buraya */) {
 		
 		3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
 		
-		3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
+		3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. 
+    sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. 
+    Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
 		ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
-		💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
+		💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, 
+    bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
 */
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
+console.log(sayilar.length);
 
 let ucetambolunenler,
   enkucuk,
@@ -100,26 +108,80 @@ let ucetambolunenler,
 // 3a çözümü
 
 /* kodlar buraya */
-
+enbuyuk = sayilar[0];
+enkucuk = sayilar[0];
+ for( let i =0; i< sayilar.length; i++){
+  
+  if(sayilar[i]> enbuyuk) enbuyuk = sayilar[i];
+  if(sayilar[i] < enkucuk) enkucuk = sayilar[i];
+//  enbuyuk = sayilar[i]> enbuyuk ? sayilar[i]: enbuyuk;
+ // enkucuk = sayilar[i]< enkucuk ? sayilar[i]: enkucuk
+ 
+ };
+ console.log(`en buyuk : ${enbuyuk} enkucuk : ${enkucuk}`);
+  
 // 3b çözümü:
 
 /* kodlar buraya */
+ ucetambolunenler =[];
+ 
+ sayilar.forEach((sayi)=> {
+  if(sayi %3 ===0)  ucetambolunenler.push(sayi)
+   
+  });
+ console.log(ucetambolunenler);
+ console.log(ucetambolunenler.length)
 
 // 3c çözümü:
 
 /* kodlar buraya */
+   ucebolunenlerintoplami = ucetambolunenler.reduce((sayi, yeni)=> sayi+yeni,0);
+console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
 /* kodlar buraya */
 
+besyuzdenkucuksayilar = sayilar.filter((sayi)=> sayi<500);
+console.log(besyuzdenkucuksayilar);
+console.log(besyuzdenkucuksayilar.length);
+
 // 3e çözümü
 
 /* kodlar buraya */
 
+siralisayilar = besyuzdenkucuksayilar.sort((a,b)=> a-b);
+console.log(siralisayilar);
+
 // 3f çözümü
 
 /* kodlar buraya */
+
+
+const tekrarSayilari = {};
+tekraredensayilar = [];
+
+// 1. Döngü: Sayıların kaç kere tekrar edildiğini tespit et
+sayilar.forEach((sayi) => {
+  if (tekrarSayilari[sayi]) {
+    tekrarSayilari[sayi]++;
+  } else {
+    tekrarSayilari[sayi] = 1;
+  }
+});
+
+// 2. Döngü: Tekrar edilen sayılar için stringleri oluştur ve tekraredensayilar dizisine ekle
+for (const sayi in tekrarSayilari) {
+  if (tekrarSayilari[sayi] > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${tekrarSayilari[sayi]} kere tekrar edilmiştir`);
+  }
+}
+console.log(tekraredensayilar);
+
+
+
+
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
